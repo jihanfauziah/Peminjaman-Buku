@@ -1,0 +1,196 @@
+:root {
+    --primary-color: #0d9488;      /* Turquoise */
+    --primary-dark: #0f766e;       /* Deep turquoise */
+    --primary-light: #ccfbf1;      /* Light turquoise for active state bg */
+    --sidebar-bg: #0f172a;         /* Dark Slate Blue */
+    --sidebar-active: #14b8a6;     /* Turquoise accent */
+    --body-bg: #f8fafc;            /* Clean light grey */
+    --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+    --card-border-radius: 12px;
+}
+
+body {
+    background-color: var(--body-bg);
+    font-family: 'Outfit', 'Inter', sans-serif;
+    color: #334155;
+    overflow-x: hidden;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    background-color: var(--sidebar-bg);
+    min-width: 260px;
+    max-width: 260px;
+    min-height: 100vh;
+    color: #cbd5e1;
+    transition: all 0.3s;
+    box-shadow: 4px 0 10px rgba(0,0,0,0.05);
+    z-index: 100;
+}
+
+.sidebar .brand {
+    padding: 1.5rem 1.25rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+    border-bottom: 1px solid #1e293b;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sidebar .nav-link {
+    color: #cbd5e1;
+    padding: 0.8rem 1.25rem;
+    margin: 0.25rem 0.75rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.sidebar .nav-link:hover {
+    color: #fff;
+    background-color: #1e293b;
+}
+
+.sidebar .nav-link.active {
+    color: #fff;
+    background-color: var(--sidebar-active);
+    box-shadow: 0 4px 12px rgba(20, 184, 166, 0.35);
+}
+
+/* Content Area */
+.main-wrapper {
+    display: flex;
+    width: 100%;
+}
+
+.content-area {
+    flex-grow: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 260px);
+}
+
+/* Navbar */
+.top-navbar {
+    background-color: #fff;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 1rem 1.5rem;
+}
+
+.page-title {
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+}
+
+/* Modern Cards */
+.card-stat {
+    border: none;
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--card-shadow);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card-stat:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+
+.card-pos {
+    border: none;
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--card-shadow);
+    background-color: #fff;
+    margin-bottom: 1.5rem;
+}
+
+.card-pos .card-header {
+    background-color: #fff;
+    border-bottom: 1px solid #f1f5f9;
+    padding: 1.25rem 1.5rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #0f172a;
+}
+
+.card-pos .card-body {
+    padding: 1.5rem;
+}
+
+/* Table Styling */
+.table-modern {
+    width: 100%;
+    margin-bottom: 0;
+    vertical-align: middle;
+}
+
+.table-modern thead th {
+    background-color: #f8fafc;
+    color: #64748b;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.table-modern tbody td {
+    padding: 1rem 1.5rem;
+    color: #334155;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 0.9rem;
+}
+
+.table-modern tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.table-modern tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+/* Buttons and Badges */
+.btn {
+    border-radius: 8px;
+    font-weight: 500;
+    padding: 0.5rem 1.25rem;
+    transition: all 0.2s;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+.badge-status {
+    padding: 0.35em 0.65em;
+    font-size: 0.75em;
+    font-weight: 600;
+    border-radius: 6px;
+}
+
+/* Responsive Utilities */
+@media (max-width: 768px) {
+    .sidebar {
+        margin-left: -260px;
+        position: fixed;
+    }
+    .sidebar.active {
+        margin-left: 0;
+    }
+    .content-area {
+        width: 100%;
+    }
+}
